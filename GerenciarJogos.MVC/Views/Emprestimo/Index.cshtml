@@ -1,0 +1,63 @@
+﻿@model GerenciarJogos.MVC.Models.EmprestimoViewModel
+@using GerenciarJogos.Common.Mensagens
+@using GerenciarJogos.Common.Constantes
+@{
+    ViewBag.Title = ConstantesGerais.TITULO_EMPRESTIMO;
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+<form id="formEmprestimo">
+
+    @Html.HiddenFor(x => x.EmprestimoId, new { @id = "hdnEmprestimoId" })
+    @Html.HiddenFor(x => x.Jogos, new { @id = "hdnListaJogoIniciais" })
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="form-group">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <label class="control-label"><em class="obrigatorio"></em> Jogos: </label>
+                    @Html.DropDownListFor(x => x.JogoId, new SelectList(Model.Jogos, "JogoId", "Nome"), "Selecione", new { @id = "ddlJogos", @class = "form-control required" })
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <label class="control-label"><em class="obrigatorio"></em> Amigos: </label>
+                    @Html.DropDownListFor(x => x.AmigoId, new SelectList(Model.Amigos, "AmigoId", "Nome"), "Selecione", new { @id = "ddlAmigos", @class = "form-control required" })
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="form-group">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label"><em class="obrigatorio"></em> Observacao: </label>
+                    @Html.TextAreaFor(x => x.Observacao, new { @id = "txtObservacao", @class = "form-control", rows = "5", maxlength = "500" })
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <button type="button" id="btnNovo" class="btn btn-primary" onclick="bind.cadastrar();">Salvar</button>
+        <br /><br />
+
+        <div class="col-md-12">
+            <table id="tblEmprestimo" class="table table-hover table-striped sortable"></table>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script type="text/javascript">
+        var $mensagens = {
+            MSG_CADASTRO: '@Html.Raw(Mensagem.MSG_CADASTRO_SUCESSO)',
+            MSG_ALTERACAO: '@Html.Raw(Mensagem.MSG_ALTERACAO_SUCESSO)',
+            MSG_EXCLUIR: '@Html.Raw(Mensagem.MSG_REMOVER_SUCESSO)',
+            MSG_EMPRESTIMO_FINALIZADO: '@Html.Raw(Mensagem.MSG_EMPRESTIMO_FINALIZADO)',
+
+        };
+    </script>
+    <script src="~/Scripts/Emprestimo/emprestimo.js"></script>
+}
+

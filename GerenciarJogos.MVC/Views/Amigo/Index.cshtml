@@ -1,0 +1,66 @@
+﻿@model GerenciarJogos.MVC.Models.AmigoViewModel
+@using GerenciarJogos.Common.Mensagens
+@using GerenciarJogos.Common.Constantes
+
+@{
+    ViewBag.Title = ConstantesGerais.TITULO_AMIGO;
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+<form id="formAmigo">
+
+    @Html.HiddenFor(x => x.AmigoId, new { @id = "hdnAmigoId" })
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="form-group">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <label class="control-label"><em class="obrigatorio"></em> Nome: </label>
+                    @Html.TextBoxFor(x => x.Nome, new { @id = "txtNome", @class = "form-control required", maxlength = "150" })
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <label class="control-label"><em class="obrigatorio"></em> Apelido: </label>
+                    @Html.TextBoxFor(x => x.Apelido, new { @id = "txtApelido", @class = "form-control", maxlength = "50" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <label class="control-label"><em class="obrigatorio"></em> Celular: </label>
+                    @Html.TextBoxFor(x => x.Telefone, new { @id = "txtTelefone", @class = "form-control required number", maxlength = "14" })
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <label class="control-label"><em class="obrigatorio"></em> E-Mail: </label>
+                    @Html.TextBoxFor(x => x.Email, new { @id = "txtEmail", @class = "form-control email", maxlength = "200" })
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <button type="button" id="btnNovo" class="btn btn-primary" onclick="bind.cadastrar();">Salvar</button>
+        <br /><br />
+
+        <div class="col-md-12">
+            <table id="tblAmigos" class="table table-hover table-striped sortable"></table>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script type="text/javascript">
+        var $mensagens = {
+            MSG_CADASTRO: '@Html.Raw(Mensagem.MSG_CADASTRO_SUCESSO)',
+            MSG_ALTERACAO: '@Html.Raw(Mensagem.MSG_ALTERACAO_SUCESSO)',
+            MSG_EXCLUIR: '@Html.Raw(Mensagem.MSG_REMOVER_SUCESSO)',
+
+        };
+    </script>
+
+    <script src="~/Scripts/Amigo/amigo.js"></script>
+}
+

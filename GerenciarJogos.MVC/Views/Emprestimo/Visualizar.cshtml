@@ -1,0 +1,123 @@
+﻿@model GerenciarJogos.MVC.Models.EmprestimoViewModel
+@using GerenciarJogos.Common.Constantes
+@{
+    ViewBag.Title = ConstantesGerais.TITULO_VISUALIZAR;
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>Detalhe do emprestimo do jogo - @Model.Jogo.Nome</h3>
+<hr />
+
+<form id="formEmprestimoVisualizar">
+
+    @Html.HiddenFor(x => x.EmprestimoId, new { @class = "hdnEmprestimoId" })
+
+    <div class="col-md-12">
+
+        <fieldset>
+            <legend>Dados do emprestimo:</legend>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <label class="control-label"> Jogo: </label>
+                        <label class="control-label">@Model.Jogo.Nome</label>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <label class="control-label"> Emprestimo para: </label>
+                        <label class="control-label">@Model.Amigo.Nome</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <label class="control-label"> Data de cadastro: </label>
+                        <label class="control-label" id="lblTelefone">@Model.DataCadastro</label>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <label class="control-label">Data de devolução: </label>
+                        <label class="control-label">@Model.DataDevolucao</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <label class="control-label">Status: </label>
+                        <label class="control-label">@Model.EmprestadoFormatado</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label">Observação: </label>
+                        <label class="control-label">@Model.Observacao</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <br />
+        <fieldset>
+            <legend>Dados do Jogo:</legend>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <label class="control-label">Tipo Console: </label>
+                        <label class="control-label">@Model.Jogo.Console.Nome</label>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label">Status: </label>
+                        <label class="control-label">@Model.Jogo.StatusFormatado</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <br />
+        <fieldset>
+            <legend>Dados do Amigo:</legend>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <label class="control-label">Tipo Console: </label>
+                        <label class="control-label">@Model.Amigo.Apelido</label>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label">Status: </label>
+                        <label class="control-label">@Model.Amigo.StatusFormatado</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <label class="control-label">Celular: </label>
+                        <label class="control-label">@Model.Amigo.Telefone</label>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label">E-Mail: </label>
+                        <label class="control-label">@Model.Amigo.Email</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <br /><br />
+        <button type="button" id="btnVoltar" class="btn btn-default" onclick="window.history.go(-1)">Voltar</button>
+        <br /><br />
+
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/Scripts/Emprestimo/emprestimo.js"></script>
+}

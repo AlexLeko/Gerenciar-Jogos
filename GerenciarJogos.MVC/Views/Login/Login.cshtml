@@ -1,0 +1,56 @@
+﻿@model GerenciarJogos.MVC.Models.UsuarioViewModel
+@using GerenciarJogos.Common.Constantes
+@using GerenciarJogos.Common.Mensagens
+
+@{
+    ViewBag.Title = ConstantesGerais.TITULO_LOGIN;
+}
+
+@Html.Hidden("hddnIsErro", Model.IsError, new { @id = "hddnIsErro" })
+
+<div class="col-md-12">
+    <div class="col-md-7 text-center">
+        @*<br /><br />*@
+        <img src="~/Content/Imagem/userLogin.png" alt="Alternate Text" height="250" width="250">
+    </div>
+    <div class="col-md-5">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center">Digite seu Login e Senha para acessar.</div>
+            <div class="panel-body">
+                <form id="frmLogin" method="post">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label class="control-label" for="txtUsuario">Usuário</label>
+                                @Html.TextBoxFor(x => x.Nome, new { @id = "txtUsuario", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label class="control-label" for="txtSenha">Senha</label>
+                                @Html.PasswordFor(x => x.Senha, new { @id = "txtSenha", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <button type="submit" id="btnLogar" class="btn btn-primary">Entrar</button>
+                    <button type="button" class="btn btn-link" id="linkPrimeiroAcesso">Primeiro Acesso</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+
+@section Scripts{
+    <script type="text/javascript">
+        var $mensagens = {
+            MSG_CADASTRO: '@Html.Raw(Mensagem.MSG_CADASTRO_SUCESSO)',
+            MSG_LOGIN_INVALIDO: '@Html.Raw(Mensagem.MSG_LOGIN_INVALIDO)',
+            MSG_LOGIN_CONFIRMACAO: '@Html.Raw(Mensagem.MSG_LOGIN_CONFIRMACAO)',
+        };
+    </script>
+    <script src="~/Scripts/Login/login.js"></script>
+}

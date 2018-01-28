@@ -1,0 +1,48 @@
+﻿@model GerenciarJogos.MVC.Models.JogoViewModel
+@using GerenciarJogos.Common.Mensagens
+@using GerenciarJogos.Common.Constantes
+
+@{ 
+    ViewBag.Title = ConstantesGerais.TITULO_JOGO;
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+<form id="frmJogo">
+    @Html.HiddenFor(x => x.JogoId, new { @id = "hdnJogoId" })
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="form-group">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <label class="control-label"><em class="obrigatorio"></em> Nome: </label>
+                    @Html.TextBoxFor(x => x.Nome, new { @id = "txtNome", @class = "form-control required" })
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <label class="control-label"><em class="obrigatorio"></em> Console: </label>
+                    @Html.DropDownListFor(x => x.ConsoleSelecionado, new SelectList(Model.Consoles, "ConsoleId", "Nome"), "Selecione", new { @id = "ddlTipoConsole", @class = "form-control required" })
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <button type="button" id="btnNovo" class="btn btn-primary" onclick="bind.cadastrar();">Salvar</button>
+        <br /><br />
+        <div class="col-md-12">
+            <table id="tblJogos" class="table table-hover table-striped sortable"></table>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script type="text/javascript">
+        var $mensagens = {
+            MSG_CADASTRO: '@Html.Raw(Mensagem.MSG_CADASTRO_SUCESSO)',
+            MSG_ALTERACAO: '@Html.Raw(Mensagem.MSG_ALTERACAO_SUCESSO)',
+            MSG_EXCLUIR: '@Html.Raw(Mensagem.MSG_REMOVER_SUCESSO)',
+
+        };
+    </script>
+
+    <script src="~/Scripts/Jogo/jogo.js"></script>
+}

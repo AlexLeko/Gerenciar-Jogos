@@ -1,0 +1,59 @@
+﻿@model GerenciarJogos.MVC.Models.JogoViewModel
+@using GerenciarJogos.Common.Constantes
+
+@{
+    ViewBag.Title = ConstantesGerais.TITULO_VISUALIZAR;
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>Detalhe do jogo -  @Model.Nome</h3>
+<hr />
+
+<form id="formJogoVisualizar">
+
+    @Html.HiddenFor(x => x.JogoId, new { @class = "hdnJogoId" })
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-4">
+                    <label class="control-label">Nome: </label>
+                    <label class="control-label">@Model.Nome</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-4">
+                    <label class="control-label">Console: </label>
+                    <label class="control-label">@Model.Console.Nome</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-4">
+                    <label class="control-label">Status do Jogo: </label>
+                    <label class="control-label">@Model.StatusFormatado</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-4">
+                    <label class="control-label">Data do cadastro: </label>
+                    <label class="control-label">@Model.DataCadastro</label>
+                </div>
+            </div>
+        </div>
+
+        <br /><br />
+        <button type="button" id="btnVoltar" class="btn btn-default" onclick="window.history.go(-1)">Voltar</button>
+        <br /><br />
+
+    </div>
+</form>
+

@@ -1,0 +1,7 @@
+C:\Users\lkale\Desktop\Projeto S2IT\GerenciarJogos\GerenciarJogos.Domain\bin\Debug\GerenciarJogos.Domain.dll
+C:\Users\lkale\Desktop\Projeto S2IT\GerenciarJogos\GerenciarJogos.Domain\bin\Debug\GerenciarJogos.Domain.pdb
+C:\Users\lkale\Desktop\Projeto S2IT\GerenciarJogos\GerenciarJogos.Domain\bin\Debug\GerenciarJogos.Common.dll
+C:\Users\lkale\Desktop\Projeto S2IT\GerenciarJogos\GerenciarJogos.Domain\bin\Debug\GerenciarJogos.Common.pdb
+C:\Users\lkale\Desktop\Projeto S2IT\GerenciarJogos\GerenciarJogos.Domain\obj\Debug\GerenciarJogos.Domain.csprojResolveAssemblyReference.cache
+C:\Users\lkale\Desktop\Projeto S2IT\GerenciarJogos\GerenciarJogos.Domain\obj\Debug\GerenciarJogos.Domain.dll
+C:\Users\lkale\Desktop\Projeto S2IT\GerenciarJogos\GerenciarJogos.Domain\obj\Debug\GerenciarJogos.Domain.pdb
