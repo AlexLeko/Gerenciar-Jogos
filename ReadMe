@@ -1,0 +1,26 @@
+# Gerenciar Jogos
+
+# Projeto
+Projeto elaborado para gerenciar o emprestimo dos jogos de uma pessoa, onde poderá controlar a situação de cada jogo e de seus consoles, 
+juntamente com os amigos e os emprestimos realizados a cada um.
+
+# Tecnologias
+O projeto foi implementado em ASP.NET MVC5, estruturado em camadas, buscando atender os conceitos de DDD.
+
+Foi utilizado o ORM Entity Framework 6, para realizar o mapeamento das entidades e a comunicação com o banco de dados.
+Juntamente com o Entity Framework foi utilizada a tecnologia Code First - Migrations para a criação da base de dados.
+O Banco de dados adotado foi o SQL Server 2012.
+
+O mapeamento foi implementado utilizando Fluent API em classes de configuração isoladas.
+Implementado com os seguintes patterns para IOC / DI, utilizado a ferramenta Ninject.MVC e AutoMapper
+
+Todo o projeto é baseado no pattern de arquitetura: SOLID – OOP Principles
+
+No front-end inicialmente foi realizada em JQuery e Bootstrap.
+Porém para uma próxima atualização pretendo passar a utilizar Angular 4 e TypeScript.
+
+Para um segundo momento pretendo implentar a camada para o WCF, na qual já deixei estruturada.
+
+Conforme evolução dos meus estudos e conhecimentos irei atualizando e implementando novas ferramentas.
+
+O projeto foi desenvolvido em Janeiro de 2018.
